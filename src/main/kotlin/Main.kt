@@ -18,5 +18,6 @@ val http4kApp = routes(
 )
 
 fun main() {
+    print("test")
     ApiGatewayV1FnLoader(http4kApp).asServer(AwsLambdaRuntime()).start()
 }
