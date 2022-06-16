@@ -10,7 +10,4 @@ jobs:
       - name: build project
         run: ./gradlew shadowJar
       - name: docker build native
-        run: docker run -v $(pwd):/source \
-    http4k/amazonlinux-java-graal-ce-lambda-runtime:latest \
-    build/libs/*.jar \
-    HelloHttp4kGraal.zip
+        run: docker run -v $(pwd):/source http4k/amazonlinux-java-graal-ce-lambda-runtime:latest build/libs/*.jar HelloHttp4kGraal.zip
