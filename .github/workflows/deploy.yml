@@ -18,7 +18,7 @@ jobs:
       - name: build project
         run: ./gradlew shadowJar
       - name: docker build native
-        run: docker run -v $(pwd):/source http4k/amazonlinux-java-graal-ce-lambda-runtime:latest build/libs/*.jar output/lambda.zip
+        run: docker run -v $(pwd):/source http4k/amazonlinux-java-graal-ce-lambda-runtime:latest build/libs/*.jar output/lambda.zip -H:+TraceClassInitialization --initialize-at-build-time=org.slf4j.simple.SimpleLogger,org.slf4j.LoggerFactory
 #      - name: Upload to s3
 #        run: aws s3 sync ./output s3://graalvm-test-bucket
       - name: serverless deploy
