@@ -5,16 +5,18 @@ import org.http4k.core.Method
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.OK
 import org.http4k.core.with
+import org.http4k.format.KotlinxSerialization.auto
 import org.http4k.routing.bind
 import org.http4k.routing.path
 import org.http4k.routing.routes
 import org.http4k.serverless.ApiGatewayRestFnLoader
 import org.http4k.serverless.AwsLambdaRuntime
 import org.http4k.serverless.asServer
-import org.http4k.format.KotlinxSerialization.auto
 
 @Serializable
 data class Person(val name: String)
+
+val bodyLens = Body.auto<Person>().toLens()
 
 val http4kApp = routes(
     "/echo/{message:.*}" bind Method.GET to {
@@ -24,6 +26,10 @@ val http4kApp = routes(
     },
     "/json" bind Method.GET to { req ->
         Response(OK).body(Json.encodeToString(Person.serializer(), Person("my test name for test function")))
+    },
+    "/json-post" bind Method.POST to { req ->
+        val body = Json.decodeFromString(Person.serializer(), req.bodyString())
+        Response(OK).body(Json.encodeToString(Person.serializer(), body))
     },
     "/" bind Method.GET to { Response(OK).body("ok") }
 )
