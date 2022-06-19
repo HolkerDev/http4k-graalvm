@@ -15,4 +15,7 @@ functions:
     events:
       - http:
           path: /
-          method: ANY
+          method: GET
+      - http:
+          path: /json
+          method: GET
