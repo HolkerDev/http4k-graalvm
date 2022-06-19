@@ -8,7 +8,7 @@ jobs:
       - name: Setup JDK
         uses: fwilhe2/setup-kotlin@main
       - name: Setup Node
-        uses: actions/setup-node@v
+        uses: actions/setup-node@v3
       - run: npm ci
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
