@@ -1,4 +1,5 @@
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import org.http4k.core.Body
 import org.http4k.core.Method
 import org.http4k.core.Response
@@ -21,8 +22,8 @@ val http4kApp = routes(
             it.path("message") ?: "(nothing to echo, use /echo/<message>)"
         )
     },
-    "/json" bind Method.GET to { req->
-        Response(OK).with(Body.auto<Person>().toLens() of Person("my test name for test function"))
+    "/json" bind Method.GET to { req ->
+        Response(OK).body(Json.encodeToString(Person.serializer(), Person("my test name for test function")))
     },
     "/" bind Method.GET to { Response(OK).body("ok") }
 )
