@@ -20,8 +20,8 @@ dependencies {
     implementation("org.http4k:http4k-serverless-lambda-runtime:4.27.0.0")
     // implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     // implementation("org.htt4k:http4k-format-kotlinx-serialization:4.27.0.0")
-    implementation("org.http4k:http4k-format-kotlinx-serialization:4.25.14.0")
-
+    implementation("org.http4k:http4k-format-kotlinx-serialization:4.27.0.0")
+    implementation("software.amazon.awssdk:dynamodb:2.17.209")
 }
 
 tasks.test {

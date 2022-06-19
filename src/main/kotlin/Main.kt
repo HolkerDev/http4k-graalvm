@@ -16,8 +16,6 @@ import org.http4k.serverless.asServer
 @Serializable
 data class Person(val name: String)
 
-val bodyLens = Body.auto<Person>().toLens()
-
 val http4kApp = routes(
     "/echo/{message:.*}" bind Method.GET to {
         Response(OK).body(

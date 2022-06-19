@@ -19,8 +19,8 @@ jobs:
         run: ./gradlew shadowJar
       - name: docker build native
         run: docker run -v $(pwd):/source http4k/amazonlinux-java-graal-ce-lambda-runtime:latest build/libs/*.jar output/lambda.zip
-      - name: Upload to s3
-        run: aws s3 sync ./output s3://graalvm-test-bucket
+#      - name: Upload to s3
+#        run: aws s3 sync ./output s3://graalvm-test-bucket
       - name: serverless deploy
         uses: serverless/github-action@v3.1
         with:
