@@ -23,7 +23,7 @@ dependencies {
     implementation("org.http4k:http4k-format-kotlinx-serialization:4.27.0.0")
     implementation("software.amazon.awssdk:dynamodb:2.17.209")
     implementation("io.github.microutils:kotlin-logging:2.1.21")
-    runtimeOnly("ch.qos.logback:logback-classic")
+    implementation("ch.qos.logback:logback-classic:1.3.0-alpha16")
 }
 
 tasks.test {
