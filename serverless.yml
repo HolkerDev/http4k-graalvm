@@ -1,0 +1,18 @@
+service: kotlin-graalvm-http4k-demo
+
+provider:
+  name: aws
+  runtime: java11
+  region: eu-central-1
+
+package:
+  artifact: output/lambda.zip
+
+functions:
+  test-graalvm-get:
+    handler: not.used
+    runtime: provided
+    events:
+      - http:
+          path: /
+          method: GET
