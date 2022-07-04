@@ -21,8 +21,19 @@ dependencies {
     // implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     // implementation("org.htt4k:http4k-format-kotlinx-serialization:4.27.0.0")
     implementation("org.http4k:http4k-format-kotlinx-serialization:4.27.0.0")
-    implementation("software.amazon.awssdk:dynamodb:2.17.209")
-    implementation("io.github.microutils:kotlin-logging:2.1.23")
+    implementation("software.amazon.awssdk:dynamodb:2.17.209"){
+        exclude(group="software.amazon.awssdk", module = "apache-client")
+        exclude(group="software.amazon.awssdk", module = "netty-nio-client")
+        exclude(group="org.slf4j", module = "slf4j-api")
+    }
+
+    implementation("software.amazon.awssdk:url-connection-client:2.17.209")
+    implementation("io.microlam:slf4j-simple-lambda:2.0.0-alpha5_1.3")
+    implementation("org.slf4j:slf4j-api:1.7.36")
+    implementation("org.slf4j:log4j-over-slf4j:2.0.0-alpha1")
+    implementation("org.apache.logging.log4j:log4j-api:2.17.2")
+
+    // implementation("io.github.microutils:kotlin-logging:2.1.23")
     // implementation("ch.qos.logback:logback-classic:1.3.0-alpha16")
 }
 
