@@ -21,10 +21,10 @@ dependencies {
     // implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     // implementation("org.htt4k:http4k-format-kotlinx-serialization:4.27.0.0")
     implementation("org.http4k:http4k-format-kotlinx-serialization:4.27.0.0")
-    implementation("software.amazon.awssdk:dynamodb:2.17.209"){
-        exclude(group="software.amazon.awssdk", module = "apache-client")
-        exclude(group="software.amazon.awssdk", module = "netty-nio-client")
-        exclude(group="org.slf4j", module = "slf4j-api")
+    implementation("software.amazon.awssdk:dynamodb:2.17.209") {
+        exclude(group = "software.amazon.awssdk", module = "apache-client")
+        exclude(group = "software.amazon.awssdk", module = "netty-nio-client")
+        exclude(group = "org.slf4j", module = "slf4j-api")
     }
 
     implementation("software.amazon.awssdk:url-connection-client:2.17.209")
@@ -33,7 +33,12 @@ dependencies {
     implementation("org.slf4j:log4j-over-slf4j:2.0.0-alpha1")
     implementation("org.apache.logging.log4j:log4j-api:2.17.2")
 
-    // implementation("io.github.microutils:kotlin-logging:2.1.23")
+    implementation("io.github.microutils:kotlin-logging-jvm:2.1.20")
+
+    // implementation("io.github.microutils:kotlin-logging:2.1.23") {
+    //     exclude(group = "org.slf4j", module = "slf4j-api")
+    // }
+    // implementation("io.moia.jvm.common:lambda-java-common-logging:0.7.4")
     // implementation("ch.qos.logback:logback-classic:1.3.0-alpha16")
 }
 
